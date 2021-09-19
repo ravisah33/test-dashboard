@@ -1,0 +1,26 @@
+
+.page-title{
+    font-size: 16px;
+  }
+  
+  .page-sub-title{
+    font-size: 14px;
+  }
+  .page-title,
+    .page-sub-title{
+    font-weight: 500;
+    }
+  
+  .launch-count{
+    height: 80px;
+      width: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+  }
+  
+  .launchpad-location,.launch-over-time,.launch-timeline{
+    height: 300px;
+    overflow: auto;
+  }

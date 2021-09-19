@@ -1,0 +1,59 @@
+<div class="dashboard-content p-2">
+    <p class="page-title mb-3">Analytics Dashboard</p>
+    <div class="row py-2 border">
+        <p class="page-sub-title mb-2">Launch Dashboard</p>
+        <div class="col-md-4 mt-1">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="rounded-circle m-auto bg-primary launch-count">{{upcomingLaunchesList?.length ?? 0}}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Upcoming</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-1">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="rounded-circle m-auto bg-primary launch-count">{{pastLaunchesList?.length ?? 0}}</div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Past</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mt-1">
+            <div class="card h-100 text-center">
+                <div class="card-body">
+                    <div class="rounded-circle m-auto bg-primary launch-count">{{allLaunchesList?.length ?? 0}}</div>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">Total</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 gap-auto">
+        <div class="mt-1 col-md-4 launchpad-location border">
+            <p class="page-sub-title mb-2">Launchpad Location</p>
+            <div id="launchpadlocation"></div>
+        </div>
+        <div class="mt-1 col-md-4 launch-over-time border">
+            <p class="page-sub-title mb-2">Launch over time</p>
+            <div id="launchovertime">
+                <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions"
+                    style="width: 100%; height: 400px; display: block;">
+                </highcharts-chart>
+            </div>
+        </div>
+        <div class="mt-1 col-md-4 launch-timeline border">
+            <p class="page-sub-title mb-2">Launch Timeline</p>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" *ngFor="let item of allLaunchesList; let i = index">
+                    {{formatDate(item.launch_date_utc)}}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
